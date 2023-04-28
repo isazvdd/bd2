@@ -1,5 +1,16 @@
-SELECT f.nome, f.salario, d.codigo
-FROM funcionario f
-JOIN departamento d ON f.cod_depto = d.codigo
-WHERE f.codigo NOT IN (SELECT cod_gerente FROM departamento)
-ORDER BY d.codigo;
+SELECT f.nome, f.salario, f.codDepto, d.sigla
+FROM funcionario f, departamento d
+WHERE f.nome NOT IN (SELECT f.nome
+  FROM funcionario f, departamento d
+  WHERE f.codigo = d.codGerente)
+
+GROUP BY nome
+ORDER BY f.codDepto ASC
+
+SELECT f.nome, f.salario, f.codDepto
+FROM funcionario f, departamento d
+WHERE f.nome NOT IN (SELECT f.nome
+  FROM funcionario f, departamento d
+  WHERE f.codigo = d.codGerente)
+
+GROUP BY nome;

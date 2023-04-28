@@ -1,40 +1,55 @@
+-- Desabilitar Foreign Keys
+SET CONSTRAINTS ALL DEFERRED;
+
+DROP TABLE IF EXISTS atividade CASCADE;
+DROP TABLE IF EXISTS projeto CASCADE;
+DROP TABLE IF EXISTS departamento CASCADE;
+DROP TABLE IF EXISTS funcionario CASCADE;
+
+-- Habilitando Foreign Keys
+SET CONSTRAINTS ALL IMMEDIATE;
+
+-- Criação das Tabelas
+
 CREATE TABLE funcionario (
-  codigo INTEGER PRIMARY KEY,
-  nome VARCHAR(50),
-  sexo VARCHAR(10),
-  dt_nasc DATE,
-  salario NUMERIC(10, 2),
-  cod_depto INTEGER REFERENCES departamento(codigo)
+    codigo SERIAL PRIMARY KEY,
+    nome varchar(50),
+    sexo char(1),
+    dtNasc date,
+    salario numeric(10,2),
+    codSupervisor int,
+    codDepto int,
+    FOREIGN KEY (codSupervisor) REFERENCES funcionario(codigo) ON DELETE SET NULL ON UPDATE CASCADE,
+    FOREIGN KEY (codDepto) REFERENCES departamento(codigo) ON DELETE SET NULL ON UPDATE CASCADE
 );
 
 CREATE TABLE departamento (
-  codigo INTEGER PRIMARY KEY,
-  descricao VARCHAR(100),
-  cod_gerente INTEGER REFERENCES funcionario(codigo)
+    codigo SERIAL PRIMARY KEY,
+    sigla varchar(10) UNIQUE,
+    descricao varchar(50),
+    codGerente int,
+    FOREIGN KEY (codGerente) REFERENCES funcionario(codigo) ON DELETE SET NULL ON UPDATE CASCADE
 );
 
 CREATE TABLE projeto (
-  codigo INTEGER PRIMARY KEY,
-  nome VARCHAR(100),
-  descricao VARCHAR(255),
-  cod_depto INTEGER REFERENCES departamento(codigo),
-  cod_responsavel INTEGER REFERENCES funcionario(codigo),
-  data_inicio DATE,
-  data_fim DATE
+    codigo SERIAL PRIMARY KEY,
+    nome varchar(50) UNIQUE,
+    descricao varchar(250),
+    codResponsavel int,
+    codDepto int,
+    dataInicio date,
+    dataFim date,
+    FOREIGN KEY (codResponsavel) REFERENCES funcionario(codigo) ON DELETE SET NULL ON UPDATE CASCADE,
+    FOREIGN KEY (codDepto) REFERENCES departamento(codigo) ON DELETE SET NULL ON UPDATE CASCADE
 );
 
 CREATE TABLE atividade (
-  codigo INTEGER PRIMARY KEY,
-  nome VARCHAR(100),
-  descricao VARCHAR(255),
-  cod_responsavel INTEGER REFERENCES funcionario(codigo),
-  data_inicio DATE,
-  data_fim DATE
+    codigo SERIAL PRIMARY KEY,
+    descricao varchar(250),
+    codProjeto int,
+    dataInicio date,
+    dataFim date,
+    FOREIGN KEY (codProjeto) REFERENCES projeto(codigo) ON DELETE SET NULL ON UPDATE CASCADE
 );
 
-CREATE TABLE atividade_projeto (
-  cod_projeto INTEGER REFERENCES projeto(codigo),
-  cod_atividade INTEGER REFERENCES atividade(codigo),
-  cod_responsavel INTEGER REFERENCES funcionario(codigo),
-  PRIMARY KEY (cod_projeto, cod_atividade)
-);
+ALTER TABLE funcionario ADD CONSTRAINT funcDeptoFK FOREIGN KEY (codDepto) REFERENCES departamento(codigo) ON DELETE SET NULL ON UPDATE CASCADE;

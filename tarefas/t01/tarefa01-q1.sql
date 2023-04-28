@@ -1,7 +1,7 @@
-SELECT f.nome
+SELECT f.nome, f.salario
 FROM funcionario f
-WHERE f.salario > (
-  SELECT AVG(f2.salario)
-  FROM funcionario f2
-  WHERE f2.cod_depto = 2
+WHERE f.salario > ANY (
+  SELECT f1.salario
+  FROM funcionario f1, departamento d
+  WHERE f1.codDepto = d.codigo AND d.codigo = 2
 );

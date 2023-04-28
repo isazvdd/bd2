@@ -1,8 +1,8 @@
-SELECT p.nome as "Nome do Projeto", 
-       d_proj.descricao as "Departamento do Projeto", 
-       f_resp.nome as "Responsável pelo Projeto", 
-       d_resp.descricao as "Departamento do Responsável"
-FROM projeto p 
-JOIN departamento d_proj ON p.cod_depto = d_proj.codigo
-JOIN funcionario f_resp ON p.cod_responsavel = f_resp.codigo
-JOIN departamento d_resp ON f_resp.cod_depto = d_resp.codigo;
+SELECT p.nome AS "Nome do Projeto", 
+       d1.nome AS "Departamento do Projeto", 
+       f1.nome AS "Funcionário Responsável",
+       d2.nome AS "Departamento do Funcionário Responsável"
+FROM projeto p
+INNER JOIN departamento d1 ON p.coddepto = d1.codigo
+INNER JOIN funcionario f1 ON p.codresponsavel = f1.codigo
+INNER JOIN departamento d2 ON f1.coddepto = d2.codigo;
