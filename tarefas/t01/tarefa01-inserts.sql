@@ -90,3 +90,28 @@ VALUES ('ES', 'Projeto de Engenharia de Software', 1, 1, '2018-02-26', '2018-06-
 
 
 --  Adicionando Atividades
+INSERT INTO atividade(descricao, codProjeto, dataInicio, dataFim)
+VALUES ('APF - Atividade 1', 1, '2018-02-26', '2018-06-30');
+INSERT INTO atividade(descricao, codProjeto, dataInicio, dataFim)
+VALUES ('APF - Atividade 2', 1, '2018-06-26', '2018-07-30');
+INSERT INTO atividade(descricao, codProjeto, dataInicio, dataFim)
+VALUES ('APF - Atividade 3', 1, '2018-08-26', '2018-09-30');
+INSERT INTO atividade(descricao, codProjeto, dataInicio, dataFim)
+VALUES ('APF - Atividade 4', 1, '2018-08-26', '2018-09-30');
+INSERT INTO atividade(descricao, codProjeto, dataInicio, dataFim)
+VALUES ('APF - Atividade 5', 1, '2018-09-30', '2018-10-30');
+
+INSERT INTO atividade(descricao, codProjeto, dataInicio, dataFim)
+VALUES ('Monitoria - Atividade 1', 2, '2018-06-26', '2018-07-30');
+
+INSERT INTO atividade(descricao, codProjeto, dataInicio, dataFim)
+VALUES ('BD - Atividade 1', 3, '2018-06-26', '2018-07-30');
+INSERT INTO atividade(descricao, codProjeto, dataInicio, dataFim)
+VALUES ('BD - Atividade 2', 3, '2018-08-26', '2018-09-30');
+INSERT INTO atividade(descricao, codProjeto, dataInicio, dataFim)
+VALUES ('BD - Atividade 3', 3, '2018-08-26', '2018-09-30');
+
+INSERT INTO atividade(descricao, codProjeto, dataInicio, dataFim)
+VALUES ('ES - Atividade 1', 4, '2018-09-30', '2018-10-30');
+INSERT INTO atividade(descricao, codProjeto, dataInicio, dataFim)
+VALUES ('ES - Atividade 2', 4, '2018-06-26', '2018-07-30');
