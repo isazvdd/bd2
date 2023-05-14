@@ -13,3 +13,6 @@ BEGIN
 END;
 $$ LANGUAGE plpgsql;
 
+-- Para usar a função, basta chamá-la passando o código do membro e o código do projeto desejado, por exemplo:
+--  SELECT quantas_atividades_membro(1, 2);
+-- Isso retornará o número de atividades do membro com código 1 no projeto com código 2.

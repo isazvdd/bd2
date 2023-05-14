@@ -13,3 +13,5 @@ BEGIN
 END;
 $$ LANGUAGE plpgsql;
 
+-- Para executar o procedimento e exibir os funcionários com idade acima da média de seu departamento, basta executar o seguinte comando:
+-- EXEC funcionarios_acima_media_idade;

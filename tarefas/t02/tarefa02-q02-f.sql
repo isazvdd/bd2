@@ -10,7 +10,7 @@ BEGIN
     INNER JOIN departamento ON funcionario.depto = departamento.codigo
     WHERE projeto.codigo = cod_projeto;
 END;
-$$;
+$$ LANGUAGE plpgsql;
 
 -- Para chamar a procedure e exibir a equipe do projeto, basta executar o seguinte comando:
--- CALL exibir_equipe_projeto(cod_projeto);
+--  CALL exibir_equipe_projeto(cod_projeto); 
