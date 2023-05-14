@@ -5,7 +5,7 @@ DECLARE
   dias_atraso INTEGER;
 BEGIN
   SELECT dataFim INTO data_final FROM projeto WHERE codigo = cod_projeto;
-  IF data_final IS NULL THEN -- Projeto sem data de fim
+  IF data_final IS NULL THEN -- Projeto sem data de final
     RETURN NULL;
   ELSE
     dias_atraso := DATE_PART('day', current_date - data_final);
