@@ -11,4 +11,9 @@ Email: isadora.azevedo.700@ufrn.edu.br
 <hr>
 <br/>
 
-#### Clicando [aqui](https://github.com/isazvdd/bd2/blob/main/tarefas/t01/tarefa01.md) você irá para a página onde haverá mais informações sobre a resolução da atividade em questão.
+## Resolução das questões
+#### Clicando [aqui](https://github.com/isazvdd/bd2/blob/main/tarefas/t01/tarefa01.md) você irá para a página onde haverá mais informações sobre a resolução da atividade 1.
+
+<br>
+
+#### Clicando [aqui](https://github.com/isazvdd/bd2/blob/main/tarefas/t02/tarefa02.md) você irá para a página onde haverá mais informações sobre a resolução da atividade 2.
